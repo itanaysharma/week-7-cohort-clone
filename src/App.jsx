@@ -13,6 +13,7 @@ function App() {
 }
 
 function Count({ setCount }) {
+  console.log("count re-render"); // This should never re-render as we are not updating any state here. But it will still update. This is the drawback of Context-API
   return (
     <div>
       <CountRenderer />
@@ -24,7 +25,11 @@ function Count({ setCount }) {
 function CountRenderer() {
   const count = useContext(CountContext);
 
-  return <div>{count}</div>;
+  return (
+    <div>
+      <b>{count}</b>
+    </div>
+  );
 }
 
 function Buttons({ setCount }) {

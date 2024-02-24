@@ -7,7 +7,7 @@ import {
   useSetRecoilState,
 } from "recoil";
 import { CountContext } from "./context";
-import { countAtom } from "./store/atoms/count";
+import { countAtom, evenSelector } from "./store/atoms/count";
 
 function App() {
   return (
@@ -39,8 +39,8 @@ function CountRenderer() {
   );
 }
 function EvenCountRenderer() {
-  const count = useRecoilValue(countAtom);
-  return <div>{count % 2 == 0 ? "It is EVen" : null}</div>;
+  const isEven = useRecoilValue(evenSelector);
+  return <div>{isEven == 0 ? "It is EVen" : null}</div>;
 }
 function Buttons() {
   // const [count, setCount] = useRecoilState(countAtom);

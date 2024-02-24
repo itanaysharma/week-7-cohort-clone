@@ -34,10 +34,14 @@ function CountRenderer() {
   return (
     <div>
       <b>{count}</b>
+      <EvenCountRenderer></EvenCountRenderer>
     </div>
   );
 }
-
+function EvenCountRenderer() {
+  const count = useRecoilValue(countAtom);
+  return <div>{count % 2 == 0 ? "It is EVen" : null}</div>;
+}
 function Buttons() {
   // const [count, setCount] = useRecoilState(countAtom);
   const setCount = useSetRecoilState(countAtom);
